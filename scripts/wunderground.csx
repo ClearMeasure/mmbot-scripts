@@ -29,6 +29,18 @@ robot.Hear(@"weather (me|at|for|in) (.*)", msg =>
 	}
 );
 
+robot.Hear(@"radar (me|at|for|in) (.*)", msg => 
+	{		
+		var wuparams = msg.Match[2].Split(',');
+		var state = wuparams[1].Trim();
+		var city = wuparams[0].Trim().Replace(" ","_");
+		
+		var url = "http://api.wunderground.com/api/" + key + "/radar/q/" + state + "/" + city + ".png";
+		
+		msg.Send(url);
+	}
+);
+
 robot.AddHelp(
     "weather (me|at|for|in) City, State - shows you an image of the thing you searched for"
 );
