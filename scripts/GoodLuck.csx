@@ -1,4 +1,5 @@
 var robot = Require<Robot>();
+robot.Name = robot.GetConfigVariable("MMBOT_ROBOT_NAME");
 
 var pics = new [] {
 	"http://www.allgraphics123.com/graphics/good-luck/good-luck43.png",
@@ -13,7 +14,7 @@ var pics = new [] {
 	"http://4.bp.blogspot.com/-kaRJh-6qZsQ/TtEKTiX98iI/AAAAAAAABcA/ykV2vKVDKoM/s1600/good+luck.JPG"
 };
 
-robot.Hear(@"GOOD LUCK$",msg => {
+robot.Hear(@"GOOD LUCK(.*)",msg => {
 	msg.Send(msg.Random(pics));
 });
 

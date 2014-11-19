@@ -27,6 +27,7 @@
 */
 
 var robot = Require<Robot>();
+robot.Name = robot.GetConfigVariable("MMBOT_ROBOT_NAME");
 
 robot.Respond(@"(give|add) (\S+) (to )?the ([-_ \w]+) role$", msg =>
 {

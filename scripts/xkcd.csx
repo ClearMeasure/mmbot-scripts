@@ -19,6 +19,7 @@
 */
 
 var robot = Require<Robot>();
+robot.Name = robot.GetConfigVariable("MMBOT_ROBOT_NAME");
 
 private static Random _random = new Random(DateTime.Now.Millisecond);
 

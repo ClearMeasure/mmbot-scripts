@@ -1,4 +1,5 @@
 var robot = Require<Robot>();
+robot.Name = robot.GetConfigVariable("MMBOT_ROBOT_NAME");
 
 var pages = new []{1,2,3,4,5,6,7,8,9,10};
 

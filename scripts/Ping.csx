@@ -1,4 +1,5 @@
 ﻿var robot = Require<Robot>();
+robot.Name = robot.GetConfigVariable("MMBOT_ROBOT_NAME");
 
 robot.Respond(@"PING$",msg => msg.Send("PONG"));
 
@@ -13,8 +14,8 @@ robot.Respond(@"RESPAWN$", msg => {msg.Finish(); robot.Reset(); });
 robot.Hear(@"ROLL CALL$", msg => msg.Send(msg.Random(new[]{"I'm here", "present", "ready and waiting", "sup", robot.Name + " is alive", "yo", "I'm awake", "reporting in", "howdy"})));
 
 robot.AddHelp(
-    "mmbot ping -  Reply with pong",
-    "mmbot echo <text> - Reply back with <text>",
-    "mmbot time - Reply with current time",
-    "mmbot die - End mmbot process"
+    "rosie ping -  Reply with pong",
+    "rosie echo <text> - Reply back with <text>",
+    "rosie time - Reply with current time",
+    "rosie die - End rosie process"
 );

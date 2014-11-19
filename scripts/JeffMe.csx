@@ -1,4 +1,5 @@
 var robot = Require<Robot>();
+robot.Name = robot.GetConfigVariable("MMBOT_ROBOT_NAME");
 
 var blurbs = new []{
 	"Onion architecture to rule them all!",

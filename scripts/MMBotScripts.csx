@@ -14,6 +14,7 @@
 */
 
 var robot = Require<Robot>();
+robot.Name = robot.GetConfigVariable("MMBOT_ROBOT_NAME");
 
 robot.Respond("download script (.*)", (msg) => {
 

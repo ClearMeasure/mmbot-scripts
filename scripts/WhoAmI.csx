@@ -19,6 +19,7 @@
 */
 
 var robot = Require<Robot>();
+robot.Name = robot.GetConfigVariable("MMBOT_ROBOT_NAME");
 
 robot.Respond(@"whoami|who am i$", msg =>
 {

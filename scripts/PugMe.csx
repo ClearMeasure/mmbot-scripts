@@ -18,8 +18,9 @@
 */
 
 var robot = Require<Robot>();
+robot.Name = robot.GetConfigVariable("MMBOT_ROBOT_NAME");
 
-robot.Hear(@"pug me", msg =>
+robot.Hear(@"pug me(.*)", msg =>
 {
     msg.Http("http://pugme.herokuapp.com/random").GetJson((err, res, body) => {
         msg.Send((string)body["pug"]);

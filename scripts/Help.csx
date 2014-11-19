@@ -18,6 +18,7 @@
 using System.Text.RegularExpressions;
 
 var robot = Require<Robot>();
+robot.Name = robot.GetConfigVariable("MMBOT_ROBOT_NAME");
 
 static readonly Regex NameReplacementRegex  = new Regex(@"\b(mmbot|hubot)\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
 

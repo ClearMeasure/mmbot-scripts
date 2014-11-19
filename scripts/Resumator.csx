@@ -1,8 +1,9 @@
 var robot = Require<Robot>();
+robot.Name = robot.GetConfigVariable("MMBOT_ROBOT_NAME");
 
 var key = robot.GetConfigVariable("MMBOT_RESUMATOR_KEY");
 
-robot.Hear(@"show open jobs", msg => 
+robot.Respond(@"show open jobs", msg => 
 	{
 		var url = "https://api.resumatorapi.com/v1/jobs?apikey=" + key;
 		
@@ -25,5 +26,5 @@ robot.Hear(@"show open jobs", msg =>
 );
 
 robot.AddHelp(
-    "show me - shows you an image of the thing you searched for"
+    "rosie show me - shows open jobs"
 );

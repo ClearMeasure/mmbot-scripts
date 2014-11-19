@@ -1,4 +1,5 @@
 var robot = Require<Robot>();
+robot.Name = robot.GetConfigVariable("MMBOT_ROBOT_NAME");
 
 var pics = new [] {
 	"http://1.bp.blogspot.com/-QZScgcWodAg/UZu0R2DaJOI/AAAAAAAAAIw/57rwaNQNyx8/s1600/Sunrise+landscape+render+retouches.png",
@@ -22,7 +23,11 @@ var pics = new [] {
 	"http://desktopwallpapers.biz/wp-content/uploads/2014/08/Baby-Duck-Free.jpg"	
 };
 
-robot.Hear(@"GOOD MORNING$",msg => {
+robot.Hear(@"GOOD MORNING(.*)",msg => {
+	msg.Send(msg.Random(pics));
+});
+
+robot.Hear(@"VGM(.*)",msg => {
 	msg.Send(msg.Random(pics));
 });
 
