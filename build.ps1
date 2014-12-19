@@ -1,17 +1,8 @@
-#for teamcity integration to ensure proper output
-trap
-{
-    write-output $_
-    ##teamcity[buildStatus status='FAILURE' ]
-    exit 1
-}
-
 #stop the service if it is running
 try
 {
     write-host "Attempting to stop the service"
     cmd --% /c sc stop MMBotService
-    #(get-wmiobject win32_service -filter "name='MMBotService'").stopService()
 }
 catch
 {
