@@ -17,15 +17,12 @@ catch
     write-host "Unable to stop service, likely already stopped"
 }
 
-#archive the old scripts into a zip file in the root of c:\mmbot
-write-host "Creating an archive"
-Set-Location $targetDir
-Get-Childitem $targetDir -Recurse | Write-Zip -IncludeEmptyDirectories -OutputPath $("$targetDir\scriptsarchive.zip")
 
 #delete all existing scripts
 write-host "Deleting all scripts on the target"
 Set-Location $targetDir
-Remove-Item $("$targetScriptsDir\*")
+#Remove-Item $("$targetScriptsDir\*")
+write-host $("$targetScriptsDir\*")
 
 #copy over all the new scripts
 write-host "Copying over new scripts"
@@ -35,7 +32,8 @@ write-host "Current directory is " $rootDir
 write-host "Copying from " $rootScriptsDir
 write-host "to " $targetScriptsDir
 
-Copy-Item $("$rootScriptsDir\*") -Destination $targetScriptsDir
+#Copy-Item $("$rootScriptsDir\*") -Destination $targetScriptsDir
+write-host $("$rootScriptsDir\*") -Destination $targetScriptsDir
 
 #start the servic
 try
