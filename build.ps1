@@ -1,5 +1,7 @@
-$rootDir = $PSScriptRoot
-$rootScriptDir = $rootDir + "/scripts"
+$rootDir = "T:\TeamCity\buildAgent\work\b388614f6c9b6eba"
+$rootScriptsDir = $rootDir + "\scripts"
+$targetDir = "c:\mmbot"
+$targetScriptsDir = $targetDir + "\scripts"
 
 write-host $rootDir
 write-host $rootScriptDir
@@ -16,13 +18,13 @@ catch
 }
 
 #archive the old scripts into a zip file in the root of c:\mmbot
-#write-host "Creating an archive"
-#Set-Location c:\mmbot
-#Get-Childitem c:\mmbot\scripts -Recurse | Write-Zip -IncludeEmptyDirectories -OutputPath C:\mmbot\scriptsarchive.zip
+write-host "Creating an archive"
+Set-Location $targetDir
+Get-Childitem $rootScriptsDir -Recurse | Write-Zip -IncludeEmptyDirectories -OutputPath $("$targetDir\scriptsarchive.zip")
 
 #delete all existing scripts
 write-host "Deleting all scripts on the target"
-Set-Location c:\mmbot
+Set-Location $targetDir
 Remove-Item c:\mmbot\scripts\*
 
 #copy over all the new scripts
@@ -30,10 +32,10 @@ write-host "Copying over new scripts"
 Set-Location $rootDir
 
 write-host "Current directory is " + $rootDir
-write-host "Copying from " + $rootScriptDir
+write-host "Copying from " + $rootScriptsDir
 write-host "to C:\mmbot\scripts"
 
-Copy-Item $($rootScriptDir+"*") -Destination c:\mmbot\scripts
+Copy-Item $($rootScriptsDir+"*") -Destination $targetScriptsDir
 
 #start the servic
 try
