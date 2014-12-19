@@ -31,11 +31,11 @@ Remove-Item $("$targetScriptsDir\*")
 write-host "Copying over new scripts"
 Set-Location $rootDir
 
-write-host "Current directory is " + $rootDir
-write-host "Copying from " + $rootScriptsDir
-write-host "to " = $targetScriptsDir
+write-host "Current directory is " $rootDir
+write-host "Copying from " $rootScriptsDir
+write-host "to " $targetScriptsDir
 
-Copy-Item $($rootScriptsDir+"\*") -Destination $targetScriptsDir
+Copy-Item $("$rootScriptsDir\*") -Destination $targetScriptsDir
 
 #start the servic
 try
