@@ -19,12 +19,13 @@ catch
 
 #archive the old scripts into a zip file in the root of c:\mmbot
 write-host "Creating an archive"
-Get-Childitem $rootScriptsDir -Recurse | Write-Zip -IncludeEmptyDirectories -OutputPath $("$targetDir\scriptsarchive.zip")
+Set-Location $targetDir
+Get-Childitem $targetDir -Recurse | Write-Zip -IncludeEmptyDirectories -OutputPath $("$targetDir\scriptsarchive.zip")
 
 #delete all existing scripts
 write-host "Deleting all scripts on the target"
 Set-Location $targetDir
-Remove-Item c:\mmbot\scripts\*
+Remove-Item $("$targetScriptsDir\*")
 
 #copy over all the new scripts
 write-host "Copying over new scripts"
@@ -32,9 +33,9 @@ Set-Location $rootDir
 
 write-host "Current directory is " + $rootDir
 write-host "Copying from " + $rootScriptsDir
-write-host "to C:\mmbot\scripts"
+write-host "to " = $targetScriptsDir
 
-Copy-Item $($rootScriptsDir+"*") -Destination $targetScriptsDir
+Copy-Item $($rootScriptsDir+"\*") -Destination $targetScriptsDir
 
 #start the servic
 try
