@@ -19,7 +19,6 @@ catch
 
 #archive the old scripts into a zip file in the root of c:\mmbot
 write-host "Creating an archive"
-Set-Location $targetDir
 Get-Childitem $rootScriptsDir -Recurse | Write-Zip -IncludeEmptyDirectories -OutputPath $("$targetDir\scriptsarchive.zip")
 
 #delete all existing scripts
