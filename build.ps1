@@ -9,7 +9,8 @@ $targetScriptsDir = $targetDir + "\scripts"
 try
 {
     write-host "Attempting to stop the service"
-    cmd --% /c sc stop MMBotService
+    #cmd --% /c sc stop MMBotService
+    Stop-Service -name "MMBotService"
 }
 catch
 {
@@ -22,18 +23,18 @@ try
     write-host "Deleting all scripts on the target"
     Set-Location $targetDir
     Remove-Item $("$targetScriptsDir\*")
-    write-host $("$targetScriptsDir\*")
 }
 catch
 {
     write-host "Deleting all the existing scripts failed"
 }
+
+
 try
 {
     #copy over all the new scripts
     write-host "Copying over new scripts"
     Set-Location $rootDir
-    write-host "Current directory is " $rootDir
     write-host "Copying from " $rootScriptsDir
     write-host "to " $targetScriptsDir
     Copy-Item $("$rootScriptsDir\*") -Destination $targetScriptsDir
@@ -47,7 +48,8 @@ catch
 try
 {
     write-host "Attempting to start the service"
-    cmd --% /c sc start MMBotService
+    #cmd --% /c sc start MMBotService
+    Start-Service -name "MMBotService"
 }
 catch
 {
