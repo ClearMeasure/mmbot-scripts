@@ -39,6 +39,7 @@ try
     write-host "Copying from " $rootScriptsDir
     write-host "to " $targetScriptsDir
     Copy-Item $("$rootScriptsDir\*") -Destination $targetScriptsDir
+    write-host "Copying completed"
 }
 catch
 {
