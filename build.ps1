@@ -10,7 +10,8 @@ try
 {
     write-host "Attempting to stop the service"
     #cmd --% /c sc stop MMBotService
-    Stop-Service -name "MMBotService"
+    #Stop-Service -name "MMBotService"
+    (Get-WmiObject -class win32_service -filter "name = 'MMBotService'").StopService()
 }
 catch
 {
@@ -49,7 +50,8 @@ try
 {
     write-host "Attempting to start the service"
     #cmd --% /c sc start MMBotService
-    Start-Service -name "MMBotService"
+    #Start-Service -name "MMBotService"
+    (Get-WmiObject -class win32_service -filter "name = 'MMBotService'").StartService()
 }
 catch
 {
