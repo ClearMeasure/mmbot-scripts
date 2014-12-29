@@ -46,6 +46,8 @@ catch
     write-host "Copying script files failed"
 }
 
+write-host "starting service"
+
 #start the service
 try
 {
