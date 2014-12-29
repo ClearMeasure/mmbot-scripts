@@ -32,7 +32,7 @@ write-host "Current directory is " $rootDir
 write-host "Copying from " $rootScriptsDir
 write-host "to " $targetScriptsDir
 
-#Copy-Item $("$rootScriptsDir\*") -Destination $targetScriptsDir
+Copy-Item $("$rootScriptsDir\*") -Destination $targetScriptsDir
 write-host $("$rootScriptsDir\*") -Destination $targetScriptsDir
 
 #start the servic
