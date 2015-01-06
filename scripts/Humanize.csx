@@ -11,14 +11,10 @@ robot.Hear(@"Humanize (.*)",msg => {
 		{
 			msg.Send(dt.Humanize());
 		}
-		else
-		{
-			msg.Send(msg.Match[1].Humanize());
-		}
 	}
 	catch(Exception e)
 	{
-		msg.Send(e.Message);
+		msg.Send(msg.Match[1].Humanize());
 	}
 });
 
