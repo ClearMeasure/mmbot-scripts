@@ -12,10 +12,6 @@ robot.Hear(@"Siemer Me(.*)",msg => {
 	msg.Send(msg.Random(pics));
 });
 
-robot.Hear(@"VGM(.*)",msg => {
-	msg.Send(msg.Random(pics));
-});
-
 robot.AddHelp(
     "Andrew Siemer the man"
 );
