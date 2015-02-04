@@ -14,10 +14,6 @@ robot.Hear(@"WELCOME(.*)",msg => {
 	msg.Send(msg.Random(pics));
 });
 
-robot.Hear(@"VGM(.*)",msg => {
-	msg.Send(msg.Random(pics));
-});
-
 robot.AddHelp(
     "welcome - Random welcome sign"
 );
