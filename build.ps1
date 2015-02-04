@@ -1,6 +1,10 @@
 $ErrorActionPreference = "Stop"
 
-$rootDir = "T:\TeamCity\buildAgent\work\b388614f6c9b6eba"
+#$rootDir = "T:\TeamCity\buildAgent\work\b388614f6c9b6eba"
+$rootDir = $PSScriptRoot
+
+write-host $PSScriptRoot
+
 $rootScriptsDir = $rootDir + "\scripts"
 $targetDir = "c:\mmbot"
 $targetScriptsDir = $targetDir + "\scripts"
