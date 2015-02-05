@@ -23,11 +23,11 @@ var pics = new [] {
 	"http://desktopwallpapers.biz/wp-content/uploads/2014/08/Baby-Duck-Free.jpg"	
 };
 
-robot.Hear(@"GOOD MORNING(.*)",msg => {
+robot.Hear(@"(.*)GOOD MORNING(.*)",msg => {
 	msg.Send(msg.Random(pics));
 });
 
-robot.Hear(@"VGM(.*)",msg => {
+robot.Hear(@"(.*)VGM(.*)",msg => {
 	msg.Send(msg.Random(pics));
 });
 
