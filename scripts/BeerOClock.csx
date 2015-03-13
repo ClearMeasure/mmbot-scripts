@@ -2,6 +2,15 @@ var robot = Require<Robot>();
 robot.Name = robot.GetConfigVariable("MMBOT_ROBOT_NAME");
 
 var beerOClockLocations = new Dictionary<int, string>{
+	{-11, "Unalaska, AK"},
+	{-10, "Anchorage, AK"},
+	{-9, "Adamstown, Pitcairn Islands"},
+	{-8, "Los Angeles, Canada"},
+	{-7, "Regina, Canada (Ryhmes with...)"},
+	{-6, "Austin, TX (Keep it weird Austin)"},
+	{-5, "Cary, NC (someone let Derik know)"},
+	{-4, "Santiago, Chile"},
+	{-3, "Rio de Janero, Brazil"},
 	{-2, "Someplace in the middle of the Atlantic"},
 	{-1, "Cape Verde, Africa"},
 	{0, "London, England"},
