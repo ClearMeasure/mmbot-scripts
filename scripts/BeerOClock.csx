@@ -12,10 +12,12 @@ var beerOClockLocations = new Dictionary<int, string>{
 	{7, "Jakarta, Indonesia"},
 	{8, "Singapore, Singapore"},
 	{9, "Tokyo, Japan"},
-	{10, "Melbourne, Australia "},
+	{10, "Melbourne, Australia"},
+	{11, "Wellington, New Zealand"},
+	{12, "Honolulu, Hawaii"},
 };
 
-robot.Hear(@"beer", msg => {
+robot.Hear(@"(.*)(beer|booze|shot|bourbon|vodka|tequila)(.*)", msg => {
 	var message = new StringBuilder();
 	var currentUtcTime = DateTime.UtcNow;
 	var beerTime = new DateTime(currentUtcTime.Year, currentUtcTime.Month, currentUtcTime.Day, 17,0,0);
@@ -28,7 +30,7 @@ robot.Hear(@"beer", msg => {
 		if( beerOClockLocations.ContainsKey(hoursToBeerOClock) ){
 			var location = beerOClockLocations[hoursToBeerOClock];
 		
-			message.AppendLine(string.Format("But hey, if you pretend you live in {0} it is all good.  Drink up!!!", location));
+			message.AppendLine(string.Format("May not be 5 o'clock here, but if you pretend you live in {0} it is all good.  Drink up!!!", location));
 		}
 	}
 	else 
